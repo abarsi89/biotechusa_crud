@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('*', function($view){
+
+            $languages = [
+                // [route, flag, label]
+                ['en', 'gb', 'English'],
+                // ['de', 'de', 'German'],
+                ['hu', 'hu', 'Hungarian'],
+            ];
+
+            $view->with('languages', $languages);
+        });
     }
 }

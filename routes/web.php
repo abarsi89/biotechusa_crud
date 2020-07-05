@@ -13,6 +13,11 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('locale/{locale}', function ($locale) {
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
+
 Route::resource('/product', 'ProductController', ['except' => ['update']]);
 
 Route::get('/product/{product}/update','ProductController@update')->name('product.update');

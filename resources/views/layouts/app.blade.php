@@ -25,6 +25,7 @@
     <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bootstrap-tagsinput-latest/src/bootstrap-tagsinput.js') }}"></script>
     <link href="{{ asset('bootstrap-tagsinput-latest/src/bootstrap-tagsinput.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -38,6 +39,30 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+
+                            <!-- Nyelvválasztó -->
+                            @foreach ($languages as $language)
+                                @if (app()->getLocale() === $language[0])
+                                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-{{ $language[1] }}"> </span> {{ __('messages.'.$language[2]) }}</a>
+                                    @break
+                                @endif
+                            @endforeach
+
+                            <div class="dropdown-menu" aria-labelledby="dropdown09">
+                            @foreach ($languages as $language)
+                                @if (app()->getLocale() !== $language[0])
+                                    <a class="dropdown-item" href="{{ url('/locale/'.$language[0]) }}"><span class="flag-icon flag-icon-{{ $language[1] }}"> </span> {{ __('messages.'.$language[2]) }}</a>
+                                @endif
+                                @endforeach
+                            </div>
+
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </nav>

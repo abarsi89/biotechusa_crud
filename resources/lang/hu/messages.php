@@ -18,4 +18,6 @@ return [
     'edit' => 'Szerkesztés',
     'detail' => 'Részletek',
     'delete' => 'Törlés',
+    'English' => 'Angol',
+    'Hungarian' => 'Magyar',
 ];

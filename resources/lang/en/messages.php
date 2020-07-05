@@ -2,13 +2,13 @@
 
 return [
     'products' => 'Products',
-    'name' => 'Product name',
+    'product.name' => 'Product name',
     'product.description' => 'Product description',
     'product.image' => 'Product images',
     'product.tags' => 'Tags',
-    'start_of_publication' => 'Start of publication',
-    'end_of_publication' => 'End of publication',
-    'price' => 'Product price',
+    'product.start_of_publication' => 'Start of publication',
+    'product.end_of_publication' => 'End of publication',
+    'product.price' => 'Product price',
     'actions' => 'Actions',
     'create' => 'Creat new product',
     'new_product' => 'Creat new product',
@@ -18,4 +18,6 @@ return [
     'edit' => 'Edit',
     'detail' => 'Details',
     'delete' => 'Delete',
+    'English' => 'English',
+    'Hungarian' => 'Hungarian',
 ];
